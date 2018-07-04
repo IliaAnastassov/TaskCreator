@@ -17,7 +17,7 @@ namespace TicketCreator.Application
             {
                 var ticketId = Console.ReadLine();
                 var currentDirPath = Directory.GetCurrentDirectory();
-                var ticketDirPath = Path.Combine(currentDirPath, $"{HASH}{ticketId}");
+                var ticketDirPath = Path.Combine(currentDirPath, $"{HASH}{ticketId} -");
 
                 if (!Directory.Exists(ticketDirPath))
                 {
