@@ -1,2 +1,2 @@
-# TicketCreator
-A simple desktop app for creating local mantis ticket folder 
+# TaskCreator
+A simple desktop app for creating local task folder 
