@@ -1,2 +1,2 @@
 # TaskCreator
-A simple desktop app for creating local task folder 
+A simple console app for creating local task folder 
