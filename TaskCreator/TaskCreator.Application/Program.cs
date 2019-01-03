@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace TicketCreator.Application
+namespace TaskCreator.Application
 {
     public class Program
     {
@@ -15,20 +15,20 @@ namespace TicketCreator.Application
         {
             try
             {
-                var ticketId = Console.ReadLine();
+                var taskId = Console.ReadLine();
                 var currentDirPath = Directory.GetCurrentDirectory();
-                var ticketDirPath = Path.Combine(currentDirPath, $"{HASH}{ticketId} -");
+                var taskDirPath = Path.Combine(currentDirPath, $"{HASH}{taskId} -");
 
-                if (!Directory.Exists(ticketDirPath))
+                if (!Directory.Exists(taskDirPath))
                 {
-                    Directory.CreateDirectory(ticketDirPath);
+                    Directory.CreateDirectory(taskDirPath);
 
-                    CreateFile(INFO_PREFIX, ticketId, ticketDirPath, EXTENSION_TXT);
-                    CreateFile(QUERIES_PREFIX, ticketId, ticketDirPath, EXTENSION_SQL);
+                    CreateFile(INFO_PREFIX, taskId, taskDirPath, EXTENSION_TXT);
+                    CreateFile(QUERIES_PREFIX, taskId, taskDirPath, EXTENSION_SQL);
                 }
                 else
                 {
-                    Console.WriteLine($"A directory for ticket {HASH}{ticketId} already exists!");
+                    Console.WriteLine($"A directory for task {HASH}{taskId} already exists!");
                     Console.ReadLine();
                 }
             }
@@ -39,10 +39,10 @@ namespace TicketCreator.Application
             }
         }
 
-        private static void CreateFile(string prefix, string ticketId, string ticketDirPath, string extension)
+        private static void CreateFile(string prefix, string taskId, string taskDirPath, string extension)
         {
-            var infoFileName = $"{prefix}{ticketId}{extension}";
-            var infoFilePath = Path.Combine(ticketDirPath, infoFileName);
+            var infoFileName = $"{prefix}{taskId}{extension}";
+            var infoFilePath = Path.Combine(taskDirPath, infoFileName);
 
             if (!File.Exists(infoFilePath))
             {
