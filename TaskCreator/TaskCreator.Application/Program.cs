@@ -7,7 +7,8 @@ namespace TaskCreator.Application
     {
         const char HASH = '#';
         const string INFO_PREFIX = "info_";
-        const string QUERIES_PREFIX = "queries_";
+        const string HRG_PREFIX = "HRG_";
+        const string EMS_PREFIX = "EMS_";
         const string EXTENSION_TXT = ".txt";
         const string EXTENSION_SQL = ".sql";
 
@@ -24,7 +25,8 @@ namespace TaskCreator.Application
                     Directory.CreateDirectory(taskDirPath);
 
                     CreateFile(INFO_PREFIX, taskId, taskDirPath, EXTENSION_TXT);
-                    CreateFile(QUERIES_PREFIX, taskId, taskDirPath, EXTENSION_SQL);
+                    CreateFile(HRG_PREFIX, taskId, taskDirPath, EXTENSION_SQL);
+                    CreateFile(EMS_PREFIX, taskId, taskDirPath, EXTENSION_SQL);
                 }
                 else
                 {
@@ -41,12 +43,12 @@ namespace TaskCreator.Application
 
         private static void CreateFile(string prefix, string taskId, string taskDirPath, string extension)
         {
-            var infoFileName = $"{prefix}{taskId}{extension}";
-            var infoFilePath = Path.Combine(taskDirPath, infoFileName);
+            var fileName = $"{prefix}{taskId}{extension}";
+            var filePath = Path.Combine(taskDirPath, fileName);
 
-            if (!File.Exists(infoFilePath))
+            if (!File.Exists(filePath))
             {
-                File.Create(infoFilePath);
+                File.Create(filePath);
             }
         }
     }
